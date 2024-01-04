@@ -1,10 +1,9 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <v-layout >
-    <v-app-bar color="surface-variant" title="Application bar"></v-app-bar>
     <LeftSide />
-    <Main/>
-    <RightSide />
+    <Main />
+    <!-- <RightSide /> -->
   </v-layout>
 </template>
 
