@@ -7,30 +7,22 @@ import { reactive } from "vue";
 const series = reactive([44, 55, 13, 43, 22]);
 const chartOptions = reactive({
   chart: {
-    width: 380,
     type: "donut",
   },
-  dataLabels: {
-    enabled: false,
-  },
+  labels: ["Team A", "Team B", "Team C", "Team D", "Team E"],
   responsive: [
     {
       breakpoint: 480,
       options: {
         chart: {
-          width: 200,
+          width: 50,
         },
         legend: {
-          show: false,
+          position: "bottom",
         },
       },
     },
   ],
-  legend: {
-    position: "right",
-    offsetY: 0,
-    height: 230,
-  },
 });
 </script>
-<style lang=""></style>
+<style></style>
