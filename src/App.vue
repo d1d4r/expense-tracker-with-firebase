@@ -6,4 +6,4 @@
 import Layout from "@/layouts/Layout.vue";
 </script>
 
-<style scoped></style>
+<style></style>

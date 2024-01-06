@@ -1,17 +1,22 @@
 <template>
-  <EasyDataTable :headers="headers" :items="items" />
+  <EasyDataTable
+    :headers="headers"
+    :items="items"
+    theme-color="#1d90ff"
+    table-class-name="customize-table"
+    header-text-direction="center"
+    body-text-direction="center"
+  />
 </template>
 
 <script setup>
-
-
 const headers = [
-  { text: "POSITION", value: "position" },
-  { text: "HEIGHT", value: "indicator.height" },
-  { text: "WEIGHT (lbs)", value: "indicator.weight", sortable: true },
-  { text: "LAST ATTENDED", value: "lastAttended", width: 200 },
-  { text: "COUNTRY", value: "country" },
-  { text: "Operation", value: "operation"},
+  { text: "type", value: "type" },
+  { text: "category", value: "category" },
+  { text: "amount ", value: "amount", sortable: true },
+  { text: "date", value: "lastAttended", width: 200 },
+  { text: "description", value: "country" },
+  { text: "Operation", value: "operation" },
 ];
 
 const items = [
@@ -53,3 +58,8 @@ const items = [
   },
 ];
 </script>
+<style>
+.customize-table {
+  width: 100%;
+}
+</style>

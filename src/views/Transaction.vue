@@ -1,16 +1,23 @@
-<template lang="">
+<!-- eslint-disable vue/multi-word-component-names -->
+<template>
   <v-container>
     <v-row>
-      <v-col cols="8"> <v-text-field label="serach"></v-text-field></v-col>
+      <v-col cols="8">
+        <v-text-field
+          label="serach"
+          variant="outlined"
+          dense
+          clearable
+        ></v-text-field
+      ></v-col>
       <v-col cols="3">
-        <v-btn @click="open">Add Transactions</v-btn>
+        <v-btn @click="open" variant="outlined">Add Transactions<Modal /></v-btn>
       </v-col>
     </v-row>
     <v-row>
       <TransactionsTabel />
     </v-row>
   </v-container>
-  <Modal />
   <RightSide />
 </template>
 <script setup>

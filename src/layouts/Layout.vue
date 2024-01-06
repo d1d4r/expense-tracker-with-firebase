@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <v-layout >
+  <v-layout>
     <LeftSide />
     <Main />
     <!-- <RightSide /> -->
