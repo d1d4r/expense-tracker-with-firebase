@@ -11,8 +11,8 @@ import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 import { md3 } from "vuetify/blueprints";
 import VueApexCharts from "vue3-apexcharts";
-import "@fortawesome/fontawesome-free/css/all.css";
-import "@mdi/font/css/materialdesignicons.css";
+// import "@fortawesome/fontawesome-free/css/all.css";
+// import "@mdi/font/css/materialdesignicons.css";
 
 import Vue3EasyDataTable from "vue3-easy-data-table";
 import "vue3-easy-data-table/dist/style.css";
