@@ -11,10 +11,11 @@
         ></v-text-field
       ></v-col>
       <v-col cols="3">
-        <v-btn @click="open" variant="outlined">
-          Add Transactions
-          <Modal> <TransactionCreateForm /> </Modal
-        ></v-btn>
+        <v-btn variant="outlined" @click="open">
+          Add Transactions<Modal title="ADD TRANSACTION">
+            <TransactionCreateForm />
+          </Modal>
+        </v-btn>
       </v-col>
     </v-row>
     <v-row>
@@ -23,6 +24,7 @@
   </v-container>
   <RightSide />
 </template>
+
 <script setup>
 import RightSide from "@/layouts/RightSide.vue";
 import TransactionsTabel from "@/components/tabels/Transactions-tabel.vue";

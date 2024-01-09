@@ -8,27 +8,23 @@
       <p>loading...</p>
     </template>
     <template #item-operation="item">
-      <v-icon name="ri-edit-box-line" @click="open">
-        <Modal>
-          <TransactionEditForm />
-        </Modal>
-      </v-icon>
+      <v-icon name="ri-edit-box-line" @click="() => edit(item)"> </v-icon>
       <v-icon name="ri-delete-bin-line" />
     </template>
   </EasyDataTable>
+  <Modal title="EDIT TRANSACTION">
+    <TransactionEditForm :itemId="itemId" />
+  </Modal>
 </template>
 
 <script setup>
 import { getAllTransactions } from "@/service/data/transactions/getAllTransactions";
-//import { count } from "firebase/firestore";
-import { onMounted, reactive } from "vue";
+import { onMounted, reactive, ref } from "vue";
 import Modal from "@/components/Modal.vue";
 import { useModalStore } from "@/stores/modal";
 import TransactionEditForm from "@/components/forms/TransactionEditForm.vue";
 
 const { open } = useModalStore();
-
-
 
 const state = reactive({
   transactions: [],
@@ -36,22 +32,28 @@ const state = reactive({
   loading: false,
   error: null,
 });
+const itemId = ref(null);
 
-const edit = () => {
-  console.log("edit");
+const edit = ({ id }) => {
+  open();
+  itemId.value = id;
 };
 
 onMounted(async () => {
   state.loading = true;
   try {
     const transactions = await getAllTransactions();
+    console.log(
+      "🚀 ~ file: Transactions-tabel.vue:44 ~ onMounted ~ transactions:",
+      transactions
+    );
 
     state.transactions = transactions;
 
     const headers = Object.keys(state.transactions[0]).map((key) => {
       return {
-        text: key.toUpperCase(),
-        value: key,
+        text: key !== "id" ? key.toUpperCase() : "",
+        value: key !== "id" ? key : "",
       };
     });
 

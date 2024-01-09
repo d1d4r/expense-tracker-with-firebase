@@ -14,14 +14,14 @@ import VueApexCharts from "vue3-apexcharts";
 // import "@fortawesome/fontawesome-free/css/all.css";
 // import "@mdi/font/css/materialdesignicons.css";
 import { OhVueIcon, addIcons } from "oh-vue-icons";
-import { RiDeleteBinLine, RiEditBoxLine } from "oh-vue-icons/icons";
+import { RiDeleteBinLine, RiEditBoxLine,IoCloseSharp } from "oh-vue-icons/icons";
 
 import Vue3EasyDataTable from "vue3-easy-data-table";
 import "vue3-easy-data-table/dist/style.css";
 
 const app = createApp(App);
 
-addIcons(RiDeleteBinLine, RiEditBoxLine);
+addIcons(RiDeleteBinLine, RiEditBoxLine,IoCloseSharp);
 const vuetify = createVuetify({
   components,
   directives,

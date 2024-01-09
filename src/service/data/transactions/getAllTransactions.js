@@ -4,6 +4,6 @@ import { db } from "../../../firebase/index.js";
 
 export const getAllTransactions = async () => {
   const querySnapshot = await getDocs(collection(db, "transactions"));
-  const transactions = querySnapshot.docs.map(doc => doc.data());
+  const transactions = querySnapshot.docs.map(doc =>  ({ ...doc.data(), id: doc.id }));
   return transactions;
 };

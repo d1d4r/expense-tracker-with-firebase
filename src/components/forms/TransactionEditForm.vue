@@ -3,7 +3,7 @@
     <v-container>
       <v-row>
         <v-col>
-          <v-radio-group inline v-model="transaction.type">
+          <v-radio-group inline v-model="state.type">
             <v-radio label="income" value="income" variant="outlined"></v-radio>
             <v-radio
               label="expense"
@@ -16,7 +16,7 @@
       <v-row>
         <v-col>
           <v-text-field
-            v-model="transaction.date"
+            v-model="state.date"
             type="date"
             label="date"
             required
@@ -27,7 +27,7 @@
       <v-row>
         <v-col>
           <v-combobox
-            v-model="transaction.category"
+            v-model="state.category"
             clearable
             chips
             multiple
@@ -45,7 +45,7 @@
         </v-col>
         <v-col>
           <v-text-field
-            v-model="transaction.amount"
+            v-model="state.amount"
             type="number"
             label="enter amount"
             required
@@ -56,7 +56,7 @@
       <v-row>
         <v-col>
           <v-text-field
-            v-model="transaction.description"
+            v-model="state.description"
             label="description"
             required
             variant="outlined"
@@ -70,23 +70,16 @@
   </form>
 </template>
 <script setup>
-import { useModalStore } from "@/stores/modal";
-import { reactive } from "vue";
-import { createTrnsaction } from "@/service/data/transactions/createTransaction";
-
-const submit = async () => {
-  const x = await createTrnsaction(transaction);
-  //rest form empty fields
-  transaction.type = "";
-  transaction.amount = null;
-  transaction.date = "";
-  transaction.category = [];
-  transaction.description = "";
-
-  close();
-};
-
-const transaction = reactive({
+import { defineProps } from "vue";
+import { reactive, onMounted } from "vue";
+import { getTransactionById } from "@/service/data/transactions/getTransactionById";
+const props = defineProps({
+  itemId: {
+    type: String,
+    default: "",
+  },
+});
+const state = reactive({
   type: "",
   amount: null,
   date: "",
@@ -94,6 +87,17 @@ const transaction = reactive({
   description: "",
 });
 
-const { close, isOpen } = useModalStore();
+onMounted(async () => {
+  const transaction = await getTransactionById(props.itemId);
+  console.log(
+    "🚀 ~ file: TransactionEditForm.vue:94 ~ onMounted ~ transaction:",
+    transaction
+  );
+  state.type = transaction.type;
+  state.amount = transaction.amount;
+  state.date = transaction.date;
+  state.category = transaction.category;
+  state.description = transaction.description;
+});
 </script>
 <style lang=""></style>

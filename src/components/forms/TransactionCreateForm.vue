@@ -83,7 +83,7 @@ const submit = async () => {
   transaction.category = [];
   transaction.description = "";
 
-  close();
+  
 };
 
 const transaction = reactive({
