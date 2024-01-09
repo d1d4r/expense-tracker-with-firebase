@@ -13,12 +13,15 @@ import { md3 } from "vuetify/blueprints";
 import VueApexCharts from "vue3-apexcharts";
 // import "@fortawesome/fontawesome-free/css/all.css";
 // import "@mdi/font/css/materialdesignicons.css";
+import { OhVueIcon, addIcons } from "oh-vue-icons";
+import { RiDeleteBinLine, RiEditBoxLine } from "oh-vue-icons/icons";
 
 import Vue3EasyDataTable from "vue3-easy-data-table";
 import "vue3-easy-data-table/dist/style.css";
 
 const app = createApp(App);
 
+addIcons(RiDeleteBinLine, RiEditBoxLine);
 const vuetify = createVuetify({
   components,
   directives,
@@ -31,5 +34,6 @@ app.use(vuetify);
 app.use(VueApexCharts);
 
 app.component("EasyDataTable", Vue3EasyDataTable);
+app.component("v-icon", OhVueIcon);
 
 app.mount("#app");

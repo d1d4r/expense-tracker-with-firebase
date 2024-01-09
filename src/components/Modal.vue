@@ -8,7 +8,7 @@
         </v-btn>
       </v-toolbar>
       <v-card-text>
-        <v-form>
+        <v-form @submit.prevent="onSubmit">
           <v-container>
             <v-row>
               <v-col>
@@ -79,7 +79,7 @@
         </v-form>
       </v-card-text>
       <v-card-actions>
-        <v-btn color="primary" @click="onSubmit">Submit</v-btn>
+        <v-btn color="primary" type="submit">Submit</v-btn>
         <v-btn color="primary">close & reset</v-btn>
       </v-card-actions>
     </v-card>
@@ -92,6 +92,7 @@ import { reactive } from "vue";
 const onSubmit = () => {
   console.log(transaction);
 };
+
 const transaction = reactive({
   type: "",
   amount: "",
