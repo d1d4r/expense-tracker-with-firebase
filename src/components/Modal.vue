@@ -8,13 +8,14 @@
         </v-btn> -->
       </v-toolbar>
       <v-card-text>
-        <TransactionCreateForm />
+        <slot></slot>
       </v-card-text>
     </v-card>
   </v-dialog>
 </template>
 <script setup>
 import TransactionCreateForm from "@/components/forms/TransactionCreateForm.vue";
+import { useModalStore } from "@/stores/modal";
 // import { useModalStore } from "@/stores/modal";
 // import { reactive } from "vue";
 // import { createTrnsaction } from "@/service/data/transactions/createTransaction";
@@ -39,6 +40,6 @@ import TransactionCreateForm from "@/components/forms/TransactionCreateForm.vue"
 //   description: "",
 // });
 
-// const { close, isOpen } = useModalStore();
+const { close, isOpen } = useModalStore();
 </script>
 <style></style>

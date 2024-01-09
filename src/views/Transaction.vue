@@ -11,7 +11,10 @@
         ></v-text-field
       ></v-col>
       <v-col cols="3">
-        <v-btn @click="open" variant="outlined">Add Transactions<Modal /></v-btn>
+        <v-btn @click="open" variant="outlined">
+          Add Transactions
+          <Modal> <TransactionCreateForm /> </Modal
+        ></v-btn>
       </v-col>
     </v-row>
     <v-row>
@@ -25,6 +28,7 @@ import RightSide from "@/layouts/RightSide.vue";
 import TransactionsTabel from "@/components/tabels/Transactions-tabel.vue";
 import Modal from "@/components/Modal.vue";
 import { useModalStore } from "@/stores/modal";
+import TransactionCreateForm from "@/components/forms/TransactionCreateForm.vue";
 
 const { open } = useModalStore();
 </script>

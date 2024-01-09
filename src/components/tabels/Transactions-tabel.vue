@@ -8,7 +8,11 @@
       <p>loading...</p>
     </template>
     <template #item-operation="item">
-      <v-icon name="ri-edit-box-line"  />
+      <v-icon name="ri-edit-box-line" @click="open">
+        <Modal>
+          <TransactionEditForm />
+        </Modal>
+      </v-icon>
       <v-icon name="ri-delete-bin-line" />
     </template>
   </EasyDataTable>
@@ -18,6 +22,13 @@
 import { getAllTransactions } from "@/service/data/transactions/getAllTransactions";
 //import { count } from "firebase/firestore";
 import { onMounted, reactive } from "vue";
+import Modal from "@/components/Modal.vue";
+import { useModalStore } from "@/stores/modal";
+import TransactionEditForm from "@/components/forms/TransactionEditForm.vue";
+
+const { open } = useModalStore();
+
+
 
 const state = reactive({
   transactions: [],
